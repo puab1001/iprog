@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Validierung Beispiel</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script>
+      // document.write("Ausgabe aus head!<br>");
+      function validateDate(val) { alert("validateDate "  + val); };
+
+      document.addEventListener( "DOMContentLoaded", 
+                                 function() { document.getElementById("datum2").addEventListener(
+								                "change", function() {validateDate("d2");}, false); }, false); 
+    </script>
+  </head>
+  <body style="font-family:sans-serif;font-size:1.5em">
+  <h1>Validierung über JavaScript "addEventListener"</h1>     
+
+  <hr/>
+  <form action="tuwas">
+      datum1:
+      <input type="text" id="datum1" onchange="validateDate('d1')" /> <br/>
+      datum2:
+      <input type="text" id="datum2" />  <br/>
+  </form>
+  <hr/>
+  </body>
+</html>
+

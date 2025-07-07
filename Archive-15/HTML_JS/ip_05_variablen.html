@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>G&uuml;ltigkeit von Variablen</title>
+
+  <script>
+    var a = 1;
+    let b = 2;
+    console.log("0 : a=" + a + " b=" + b);
+    
+    function demo(p) {
+      console.log("1 : a=" + a + " b=" + b + " p=" + p + " demo.arguments[1]=" + demo.arguments[1]);
+      console.log("2 : a=" + a + " b=" + b + " p=" + p + " x=" + x);
+      {
+        var x = 4;
+        let y = 5;
+        console.log("3 : a=" + a + " b=" + b + " p=" + p + " x=" + x + " y=" + y);
+      }
+      console.log("4 : a=" + a + " b=" + b + " p=" + p + " x=" + x);
+      console.log("5 : a=" + a + " b=" + b + " p=" + p + " x=" + x + " y=" + y);
+    }
+  </script>
+  <link rel="stylesheet" type="text/css" href="css/styles.css" />
+</head>
+
+<body>
+  <h1>G&uuml;ltigkeit von Variablen</h1>
+  <p>Ausgabe auf Konsole</p>
+  <p>Hier: <a href="javascript:demo()">ausf&uuml;hren: demo()</a></p>
+  <p>Hier: <a href="javascript:demo(3)">ausf&uuml;hren: demo(3)</a></p>
+  <p>Hier: <a href="javascript:demo(3, 4)">ausf&uuml;hren: demo(3, 4)</a></p>
+</body>
+</html>
+

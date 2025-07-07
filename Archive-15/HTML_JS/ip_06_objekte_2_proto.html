@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+  <title>JavaScript Prototypen</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <h1>JavaScript Prototypen</h1>
+  <hr/>
+  <p>Ausgabe erfolgt auf Konsole</p>
+  <hr/>
+  <script>
+     function Person (vn, nn) { 
+	   this.vn = vn; this.nn = nn; this.stufe = 1; 
+	   this.fp = function() { return "In fp : vn=" + this.vn + ' nn=' + this.nn; }; 
+	 }
+
+	 let p1 = new Person ('Erna', 'Schmidt');
+	 console.log("p1.fp() => " + p1.fp());
+	 
+	 Person.prototype.f2 = function() { return "In f2"; };
+     console.log("p1.f2() => " + p1.f2());
+	 
+	 let p2 = new Person();
+	 p2.vn = 'Hugo';
+	 console.log ("p2.fp() => " + p2.fp() + "\np2.f2() => " + p2.f2());
+	 
+	 Person.prototype.toString = function() { return "In toString : vn=" + this.vn + ' nn=' + this.nn;};
+	 console.log ("p2 => " + p2);
+
+	 // Instanziierung über Object mit Prototyp
+	 let p3 = Object.create (p1); // p1 ist Person
+	 p3.vn = 'Hugo';
+	 console.log ("p3.fp() => " + p3.fp());
+
+	 // komplett dynamisch mit JSON
+	 let p4 = {
+       vn: 'Erna', nn: 'Schmidt', stufe: 1,
+	   fx: function() { return "In fx : vn=" + this.vn + ' nn=' + this.nn; }
+	 }
+	 console.log ("p4.fx() => " + p4.fx());
+
+	 // dynamisch Attribute ergaenzen
+	 let p5 = new Object();
+	 p5.vn = 'Hugo';
+	 console.log ("p5.vn => " + p5.vn);	 	 
+	 console.log ("p5.nn => " + p5.nn);	 	 
+	 
+	 // Vererbung
+	 function Student(mtknr) {
+       this.mtknr = mtknr;	 
+	   this.fs = function() { return "In fs : mtknr=" + this.mtknr; }; 
+	 }
+	 
+	Student.prototype = new Person(); // Object.create(Person.prototype)
+	
+	 let s = new Student(12345);
+	 s.vn = 'Carlo';
+	 s.nn = 'Clever';
+	 console.log ("s.fs() => " + s.fs()); // Funktion aus Student
+	 console.log ("s.fp() => " + s.fp()); // Funktion aus Person
+  </script>
+</body>
+</html>
+

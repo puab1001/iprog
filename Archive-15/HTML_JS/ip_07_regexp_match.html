@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <title>RegExp match</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    label { width:120px; text-align:right }
+    input { width:500px; margin-left:5px; font-size:1.2em }
+    input[type="button"] { cursor:pointer;  width:650px }
+  </style>
+  <script>
+  function check() {
+    let ausdruck = document.getElementById('a1').value;
+    let wert = document.getElementById('w1').value;
+
+    let regexp = new RegExp(ausdruck, "g"); // g - global suchen
+
+    let erg = wert.match(regexp); // auswerten
+
+    let text = 'Matches: ';
+    if (erg == null) {
+      text += 'keine';
+    } else {
+      text += erg.length + '<ul>';
+      for (let i = 0; i < erg.length; ++i) {
+        text += '<li>Match ' + (i+1) + ' => ' + erg[i] + '</li>';
+      }
+	  text += '</ul>';
+    }
+	
+	document.getElementById('meldung').innerHTML = text;
+  }
+  </script>
+</head>
+
+<body>
+  <h1>RegExp match Demo</h1>
+  <p>Testen regul&auml;rer Ausdr&uuml;cke mit JavaScript</p>  
+  <hr/>
+  <form action="ip_07_regexp_match.html">
+  <p><label for="a1">Ausdruck:</label> 
+     <input type="text" id="a1"/>
+  </p>
+  <p>
+     <label for="w1">Wert:</label> 
+     <input type="text" id="w1"/>
+  </p>
+  <p>
+     <input type="button" value="&uuml;berpr&uuml;fen" onclick="check()" />
+  </p>
+  </form>
+  <hr/>
+  <p id="meldung"></p>
+  <hr/>
+</body>
+</html>

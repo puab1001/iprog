@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <title>Ereignisabfragen</title>
+  <script>
+    function Bildwechsel(aktion) {
+      document.getElementById("aktion").textContent="Aktion: " + aktion;
+      switch (aktion) {
+        case "onMouseOver": img = "bild2.jpg"; break;
+        case "onMouseOut" : img = "bild1.jpg"; break;
+        case "onMouseDown": img = "bild3.jpg"; break;
+        case "onMouseUp"  : img = "bild2.jpg"; break;
+      }
+      document.images[0].src = "images/" + img;
+    }
+  </script>
+  <link rel="stylesheet" type="text/css" href="css/styles.css" />
+</head>
+
+<body>
+  <h1>Reaktion auf Mausereignisse</h1>
+	<h2>onMouseOver, onMouseOut, onMouseDown, onMouseUp</h2>
+
+  <img src="images/bild1.jpg" alt="Grafikwechsel"
+       onmouseover="Bildwechsel('onMouseOver')" 
+       onmouseout="Bildwechsel('onMouseOut')"  
+       onmousedown="Bildwechsel('onMouseDown')"
+       onmouseup="Bildwechsel('onMouseUp')" />
+  <p id="aktion"></p>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <title>Programmsteuerung</title>
+  <script>
+  function func1(x) {
+    if (x % 2 == 0) {
+      alert('Bedingte Auswahl:\n' + x + ' ist eine gerade Zahl.');
+    }
+  }
+
+  function func2(Note) {
+    alert('Einseitige Auswahl:\nBestimmung der Note ' + Note);
+    switch (Note) {
+      case "1": alert("Sehr gut"); break;
+      case "2": alert("Gut"); break;
+      case 3: alert("Befriedigend"); break;
+      case "4": alert("Ausreichend"); break;
+      case "5": alert("Mangelhaft"); break;
+      case "6": alert("Ungen&uuml;gend"); break;
+      default: alert("Diese Note gibt es nicht."); break;
+    }
+  }
+
+  function func3() {
+    for ( let i = 0; i < 10; i++ ) {
+      alert(i);
+    }
+  }
+
+  function func4() {
+    let i = 10;
+    while ( i > 0 ) {
+      i--; alert(i);
+    }
+  }
+
+  function func5() {
+    let i = 10;
+    do {
+      i--; alert(i);
+    }
+    while ( i > 0 )
+  }
+
+  function func6() {
+    for ( let i = 0; i < 10; i++ ) {
+      if (i == 5)
+        break;
+      alert(i);
+    }
+  }
+
+  function func7() {
+    for ( let i = 0; i <= 10; i++ ) {
+      if (i % 2 == 0)
+        continue;
+      alert(i);
+    }
+  }
+  </script>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+ <h3>Beispiele f&uuml;r Steueranweisungen</h3>
+ <p><a href="javascript:func1(124);">Bedingte Auswahl</a> mit <code>if</code><br/>
+    <a href='javascript:func2(3);'>Einseitige Auswahl</a> mit <code>switch</code>
+ <p><a href="javascript:func3();">Z&auml;hlergesteuerte Wiederholung</a> mit <code>for</code><br/>
+    <a href="javascript:func4();">Kopfgesteuerte Wiederholung</a> mit <code>while</code><br/>
+    <a href="javascript:func5();">Fu&szlig;gesteuerte Wiederholung</a> mit <code>do while</code><br/>
+ <p><a href="javascript:func6();">Schleifensteuerung</a> mit <code>break</code><br/>
+    <a href="javascript:func7();">Schleifensteuerung</a> mit <code>continue</code><br/>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <title>Titel</title>
+  <link rel="stylesheet" type="text/css" href="css/styles.css" />
+</head>
+<body>
+<hr/>
+<p id="pname"
+   onclick="document.getElementById('pname').firstChild.nodeValue = 'Jetzt ist es passiert!';
+            document.getElementById('pname').style.color='#FF0000';">
+1) Hier passiert was</p>
+
+<p onclick="document.getElementsByTagName('p')[1].firstChild.nodeValue = 'Nochmal was passiert!';
+            document.body.style.color='#00FF00';">
+2) Hier passiert was</p>
+
+<p onclick="let myText = document.createTextNode('Ein neuer Absatz!');
+            let myP = document.createElement('p'); myP.appendChild(myText);
+            myP.style.fontWeight='bold';
+            document.body.appendChild (myP);">
+3) Hier passiert was</p>
+
+<p onclick="document.writeln('<p>Ein neuer Text!</p>');">
+4) Hier passiert was</p>
+<hr/>
+</body>
+</html>

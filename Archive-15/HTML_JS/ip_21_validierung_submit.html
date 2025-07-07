@@ -1,0 +1,77 @@
+<!DOCTYPE html> 
+<html lang="de">
+<head>
+  <title>Beispiel Validierung 2</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script>
+    function checkform1(b) { // schlechte Loesung
+      let f = b.parentNode.parentNode;
+      let error = '';
+      error += f.t1.value == '' ? '\nt1' : '';
+      error += f.t2.value == '' ? '\nt2' : '';
+      if (error != '') {
+        alert('Bitte eingeben:' + error);
+      } else {
+        f.submit();
+      }
+    }
+
+    function checkform2(f) { // Basis guter Loesungen
+      let error = '';
+      error += f.t1.value == '' ? '\nt1' : '';
+      error += f.t2.value == '' ? '\nt2' : '';
+      if (error != '') {
+        alert('Bitte eingeben:' + error);
+      }
+      return error == '';
+    }
+
+    window.onload = function () { // perfekte Loesung
+      document.getElementById('f3').onsubmit =
+        function () { return checkform2(this); };
+    };
+
+    // das kann nicht gehen:
+    document.getElementById('f4').onsubmit =
+      function () { return checkform2(this); }; 
+  </script>
+</head>
+
+<body>
+  <h1>Verschiedene Formulare</h1>
+  <noscript><p style="color:red">Achtung: JavaScript ist deaktiviert!</p></noscript>
+
+  <fieldset><legend>schlechte Lösung</legend>
+  <form action="ip_alles_ok.html" action="get">
+   <p><label for="t11">t1:</label> <input type="text" name="t1" id="t11"/></p>
+   <p><label for="t12">t2:</label> <input type="text" name="t2" id="t12"/>
+      <input type="button" value="ok" onclick="checkform1(this)" /></p>
+  </form>
+  </fieldset>
+  
+  <fieldset><legend>bessere Lösung</legend>
+  <form action="ip_alles_ok.html" onsubmit="return checkform2(this)" action="get">
+   <p><label for="t21">t1:</label> <input type="text" name="t1" id="t21"/></p>
+   <p><label for="t22">t2:</label> <input type="text" name="t2" id="t22"/>
+      <input type="submit" value="ok" /></p>
+  </form>
+  </fieldset>
+  
+  <fieldset><legend>perfekte Lösung</legend>
+  <form action="ip_alles_ok.html" id="f3" action="get">
+   <p><label for="t31">t1:</label> <input type="text" name="t1" id="t31"/></p>
+   <p><label for="t32">t2:</label> <input type="text" name="t2" id="t32"/>
+      <input type="submit" value="ok" /></p>
+  </form>
+  </fieldset>
+  
+  <fieldset><legend>fehlerhafte Lösung</legend>
+  <form action="ip_alles_ok.html" id="f4" action="get">
+   <p><label for="t41">t1:</label> <input type="text" name="t1" id="t41"/></p>
+   <p><label for="t42">t2:</label> <input type="text" name="t2" id="t42"/>
+      <input type="submit" value="ok" /></p>
+  </form>
+  </fieldset>
+</body>
+</html>

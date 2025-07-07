@@ -1,0 +1,54 @@
+<!DOCTYPE html > 
+<html>
+  <head>
+    <title>Beispiel Validierung</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script>
+    function checkform1(b) {
+      let f = b.parentNode.parentNode;
+      let error = '';
+      error += f.t1.value=='' ? '\nt1' : '';
+      error += f.t2.value=='' ? '\nt2' : '';
+      if (error != '') {
+        alert('Bitte eingeben:' + error);
+      } else { // schickt Form ab
+        f.submit();
+      }
+    }
+
+    function checkform2(f) {
+      let error = '';
+      error += f.t3.value=='' ? '\nt3' : '';
+      error += f.t4.value=='' ? '\nt4' : '';
+      if (error != '') {
+        alert('Bitte eingeben:' + error);
+      } 
+      // verhindert Absenden, falls 'false'
+      return error=='';
+    }
+    </script>
+  </head>
+
+  <body>
+  <h1>Verschiedene Formulare</h1>
+  <noscript><p style="color:red">Achtung: JavaScript ist deaktiviert!</p></noscript>
+  
+  <fieldset><legend>schlechte Lösung</legend>
+  <form action="ip_alles_ok.html">
+   <p><label for="t1">t1:</label> <input type="text" name="t1" id="t1"/></p>
+   <p><label for="t2">t2:</label> <input type="text" name="t2" id="t2"/>
+      <input type="button" class="button" value="ok" onclick="checkform1(this)" /></p>
+  </form>
+  </fieldset>
+  
+  <fieldset><legend>bessere Lösung</legend>
+  <form action="ip_alles_ok.html" onsubmit="return checkform2(this)">
+   <p><label for="t3">t3:</label> <input type="text" name="t3" id="t3"/></p>
+   <p><label for="t4">t4:</label> <input type="text" name="t4" id="t4"/>
+      <input type="submit" value="ok" /></p>
+  </form>
+  </fieldset>
+  </body>
+</html>
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Konvertierung von Zahlen</title>
+
+  <script>
+    function createTab() {
+
+      let za = new Array("7", "7.89", "7,89", "abc", "12abc", "abc12");
+
+      let tbody = document.getElementsByTagName('tbody')[0];
+
+      for (let i = 0; i < za.length; ++i) {
+        let tr = document.createElement("tr");
+        let td = document.createElement("td");
+        td.appendChild(document.createTextNode(za[i]));
+        tr.appendChild(td);
+
+        td = document.createElement("td");
+        td.appendChild(document.createTextNode(parseInt(za[i])));
+        tr.appendChild(td);
+
+        td = document.createElement("td");
+        td.appendChild(document.createTextNode(Number(za[i])));
+        tr.appendChild(td);
+        tbody.appendChild(tr);
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+<h1>parseInt()  vs.  Number()</h1>
+  <table cellspacing='25' cellpadding='5' style="border: 1pt solid blue">
+    <thead>
+      <tr><th>Wert</th><th>parseInt()</th><th>Number()</th></tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+  <p><a href="javascript:createTab()">anzeigen</a></p>
+</body>
+</html>

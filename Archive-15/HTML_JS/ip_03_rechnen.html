@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Rechnen</title>
+  <script> 
+    function rechnen() { 
+      let form = document.getElementById("f1");
+      let p = form.x.value * form.y.value;
+      let s = form.x.value + form.y.value;
+
+      alert(form.x.value + " * " + form.y.value + " = " + p +"\n"
+          + form.x.value + " + " + form.y.value + " = " + s +"\n"
+      );
+    } 
+  </script> 
+  <link rel="stylesheet" type="text/css" href="css/styles.css" />
+</head>
+<body>
+  <form id="f1"> 
+    <fieldset>
+      <legend>Rechner</legend>
+      <input type="text" name="x" size="3">
+      <input type="text" name="y" size="3"> 
+      <input type="button" class="button" value="Rechnen" onclick="rechnen()">
+    </fieldset>
+  </form>
+
+  
+  
+
+  <script> 
+    function rechnen_neu() { 
+      let form = document.getElementById("f1");
+      let p = form.x.value * form.y.value;
+      let s = parseInt(form.x.value) +  parseInt(form.y.value);
+      alert(
+        form.x.value + " * " + form.y.value + " = " + p +"\n" +
+        form.x.value + " + " + form.y.value + " = " + s +"\n"); 
+    } 
+  </script> 
+</body>
+</html>
+

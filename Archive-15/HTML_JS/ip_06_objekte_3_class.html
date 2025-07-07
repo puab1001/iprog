@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+  <title>JavaScript Class</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <h1>JavaScript Class - Definition und Verwendung</h1>
+  <hr/>
+  <p>Ausgabe erfolgt auf Konsole</p>
+  <hr/>
+  <script>
+ 	 class CPerson { // ab ECMAScript6
+       constructor(vname, nname) {
+	     console.log("CPerson.constructor : vname = " + vname + " nname = " + nname);
+         this.vn = vname;
+         this.nn = nname;
+	   }
+	   toString() { return "toString : " + this.vn + ' ' + this.nn; }; 
+     }
+	 
+	 let cp = new CPerson("Clara", "Test");
+	 console.log("cp => " + cp); // ruft toString() auf
+	 
+	 CPerson.prototype.fneu = function() {  return "fneu : " + this.vn + ' ' + this.nn; };
+     console.log("cp.fneu() => " + cp.fneu());
+	 console.log("cp.fx() => " + cp.fx()); // fuehrt zu Fehler
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <title>Zugriff auf vordefinierte Objekte</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <h1>Zugriff auf vordefinierte Objekte</h1>
+  <hr/>
+  <h2>Form f1 </h2>
+  <form name="f1" action="">
+    <fieldset>
+     <legend>f1</legend>
+     <input type="text" name="feld1" value="Feld_1">
+    </fieldset>
+  </form>
+ 
+  <h2>Form f2 </h2>
+  <form name="f2" action="">
+    <fieldset>
+      <legend>f2</legend>
+      <input type="text" name="feld1" value="Feld_21">
+      <input type="text" name="feld2" value="Feld_22">
+    </fieldset>
+  </form>
+
+  <h2>JavaScript Ausgaben zu vordefinierten Objekten aus dem Dokument</h2>
+  <script>
+     document.write ("<p>document.f1.feld1 : " + document.f1.feld1.value + "<\/p>");
+     document.write ("<p>document.f2.feld1 : " + document.f2.feld1.value + "<\/p>");
+     document.write ("<p>document.f2.feld2 : " + document.f2.feld2.value + "<\/p>");
+     document.write ("<p>document.lastModified : " + document.lastModified + "<\/p>");
+  </script>
+  
+  <hr/>
+  <h2>JavaScript Ausgaben zu Date, Browser und Screen</h2>
+  <script>
+     let d = new Date();
+     document.write ("<p>Uhrzeit: " + d.getHours() + ":" + d.getMinutes() + "<\/p>");
+     document.write ("<p>Web-Browser: " + navigator.userAgent + "<\/p>");
+     document.write ("<p>Screen: " + screen.width + " x " + screen.height + "<\/p>");
+  </script>
+  <hr/>
+</body>
+</html>
+

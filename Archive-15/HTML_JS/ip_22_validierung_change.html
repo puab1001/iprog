@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Validierung Beispiel</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script>
+      // document.write("Ausgabe aus head!<br>");
+      function validateDate() { alert("validateDate aufgerufen"); };
+
+	  window.onload = function(){
+	       document.getElementById('datum2').onchange = validateDate};
+	    
+
+      // Ab HTML5 spezifiziert - vorher Gecko spezifisches Event
+      document.addEventListener( "DOMContentLoaded", 
+		                  function() { document.getElementById('datum3').addEventListener(
+                                         "change", validateDate, false); 
+		                             }, false); 
+    </script>
+  </head>
+
+  <body>
+  <h1>Validierung über JavaScript "addEventListener"</h1>
+  <noscript><p style="color:red">Achtung: JavaScript ist deaktiviert!</p></noscript>
+
+  <hr/>
+  <form action="tuwas">
+      datum1:
+      <input type="text" id="datum1" onchange="validateDate()" /> <br/>
+      datum2:
+      <input type="text" id="datum2" />  <br/>
+      datum3:
+      <input type="text" id="datum3" /> 
+  </form>
+  <hr/>
+  </body>
+</html>
+
